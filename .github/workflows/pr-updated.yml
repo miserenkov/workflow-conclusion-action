@@ -47,7 +47,7 @@ jobs:
       - uses: technote-space/release-type-action@v1
         with:
           EXCLUDE_MESSAGES: ${{ env.EXCLUDE_MESSAGES }}
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   checkVersion:
     name: Check package version
@@ -86,7 +86,7 @@ jobs:
       - name: Check package version
         uses: technote-space/package-version-check-action@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_PREFIX: release/
           NEXT_VERSION: ${{ env.NEXT_VERSION }}
         if: env.NEXT_VERSION

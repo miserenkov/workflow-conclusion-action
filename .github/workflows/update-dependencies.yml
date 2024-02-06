@@ -33,7 +33,7 @@ jobs:
         id: update_deps
         uses: technote-space/create-pr-action@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EXECUTE_COMMANDS: |
             npx npm-check-updates -u --packageFile package.json
             yarn install
@@ -74,7 +74,7 @@ jobs:
       - name: Check package version
         uses: technote-space/package-version-check-action@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_PREFIX: release/
           NEXT_VERSION: ${{ env.NEXT_VERSION }}
         if: env.NEXT_VERSION
